@@ -1,36 +1,93 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Frontend Mentor | Article preview component</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <article class="container">
+      <div class="display">
+        <img
+          class="display__img"
+          src="images/drawers.jpg"
+          alt="picture of drawers"
+        />
+      </div>
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Article preview component</title>
+      <div class="content">
+        <h1 class="content__header">
+          Shift the overall look and feel by adding these wonderful touches to
+          furniture in your home
+        </h1>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 0.6875rem; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
+        <p class="content__description">
+          Ever been in a room and felt like something was missing? Perhaps it
+          felt slightly bare and uninviting. I’ve got some simple tips to help
+          you make any room feel complete.
+        </p>
 
-  Shift the overall look and feel by adding these wonderful 
-  touches to furniture in your home
+        <div class="content__footer">
 
-  Ever been in a room and felt like something was missing? Perhaps 
-  it felt slightly bare and uninviting. I’ve got some simple tips 
-  to help you make any room feel complete.
+          <div class="content__user">
+            <div class="content__avatar">
+              <img
+                class="content__avatar-img"
+                src="images/avatar-michelle.jpg"
+                alt="avatar picture"
+              />
+            </div>
+            <div class="content__user-info">
+              <h2 class="content__name">Michelle Appleton</h2>
+              <p class="content__date">28 Jun 2020</p>
+            </div>
+          </div>
 
-  Michelle Appleton
-  28 Jun 2020
+          <button class="content__share">
+            <img
+              class="content__share-icon"
+              src="images/icon-share.svg"
+              alt="share icon"
+            />
+          </button>
 
-  Share
-  
-  <footer class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </footer>
-</body>
+          <div class="content__share-panel">
+
+            <span class="panel__heading">SHARE</span>
+            <a href="#" class="share-panel__link">
+              <img
+                src="images/icon-facebook.svg"
+                alt="facebook"
+                class="share-panel__link-img"
+              />
+            </a>
+            <a href="#" class="share-panel__link">
+              <img
+                src="images/icon-twitter.svg"
+                alt="twitter"
+                class="share-panel__link-img"
+              />
+            </a>
+            <a href="#" class="share-panel__link">
+              <img
+                src="images/icon-pinterest.svg"
+                alt="pinterest"
+                class="share-panel__link-img"
+              />
+            </a>
+
+            <div class="share-panel__arrow"></div>
+          </div>
+
+        </div>
+      </div>
+    </article>
+  </body>
 </html>
