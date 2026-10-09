@@ -31,31 +31,5 @@ const validateYear = (year) => {
   return true;
 };
 
-const isDateValid = () => {
-  let isValid = [false, false, false];
-
-  if (!validateDay(birthDayInput.value)) {
-    birthDayInput.classList.add("card__input--error");
-  } else {
-    isValid[0] = true;
-    birthDayInput.classList.remove("card__input--error");
-  }
-
-  if (!validateMonth(birthMonthInput.value)) {
-    birthMonthInput.classList.add("card__input--error");
-  } else {
-    isValid[1] = true;
-    birthMonthInput.classList.remove("card__input--error");
-  }
-
-  if (!validateYear(birthYearInput.value)) {
-    birthYearInput.classList.add("card__input--error");
-  } else {
-    isValid[2] = true;
-    birthYearInput.classList.remove("card__input--error");
-  }
-
-  return isValid.every((item) => item === true);
-};
 
 export { calculateAge, validateDay, validateMonth, validateYear };
