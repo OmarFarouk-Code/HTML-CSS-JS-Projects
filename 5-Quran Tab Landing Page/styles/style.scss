@@ -74,7 +74,11 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: var(--default-padding);
+  top: 0;
+  background-color: white;
+  position: sticky;
+  padding-block: 2rem;
+  z-index: 1;
 }
 
 .logoContent {
@@ -118,6 +122,14 @@ body {
   display: flex;
   gap: calc(var(--default-padding) * 2);
   align-items: center;
+  opacity: 0;
+  transform: translateY(1rem);
+  transition: all var(--timing-animation) ease-in-out;
+
+  &.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .section__content {
@@ -206,8 +218,7 @@ body {
   height: 26rem;
   box-shadow: 0 0.4rem 0.8rem 0.2rem rgba(0, 0, 0, 0.1);
   border-radius: var(--default-radius);
-  padding: calc(var(--default-padding) * 2) var(--default-padding)
-    var(--default-padding);
+  padding: calc(var(--default-padding) * 2) var(--default-padding) var(--default-padding);
   width: 25rem;
 }
 
