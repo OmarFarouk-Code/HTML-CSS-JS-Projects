@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Note Taking App</title>
+    <link rel="stylesheet" href="styles/style.css" />
+  </head>
+  <body>
+    <aside class="sidebar">
+      <a class="sidebar__logo" href="#">Almdrasa-Notes</a>
+
+      <form class="sidebar__search search" role="search">
+        <label class="search__label" for="search-input">Search</label>
+        <img class="search__icon" src="assets/search-icon.svg" />
+        <input class="search__input" id="search-input" type="search" placeholder="Search" />
+      </form>
+
+      <nav class="sidebar__nav">
+        <ul class="menu__list">
+          <li class="menu__item menu__item--active">
+            <a class="menu__link" href="#notes">Notes</a>
+          </li>
+          <li class="menu__item">
+            <a class="menu__link" href="#add-note">Add Note</a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <section class="archive">
+      <div class="archive__section">
+        <h2 class="archive__heading">Pinned</h2>
+
+        <ul class="archive__list">
+          <li class="archive__item">
+            <article class="note-card">
+              <h3 class="note-card__title">
+                <a class="note-card__link" href="#note-1">Light &amp; Bright in Brooklyn</a>
+              </h3>
+              <p class="note-card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at arcu dui.</p>
+              <div class="note-card__footer">
+                <time class="note-card__date" datetime="2021-02-08">Feb 8, 2021</time>
+                <button class="note-card__delete" type="button">Delete</button>
+              </div>
+            </article>
+          </li>
+        </ul>
+      </div>
+
+      <div class="archive__section">
+        <h2 class="archive__heading archive__heading--divided">Notes</h2>
+
+        <ul class="archive__list">
+          <li class="archive__item">
+            <article class="note-card">
+              <h3 class="note-card__title">
+                <a class="note-card__link" href="#note-2">Business Partners Work at Modern Office</a>
+              </h3>
+              <p class="note-card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at arcu dui.</p>
+              <div class="note-card__footer">
+                <time class="note-card__date" datetime="2021-02-08">Feb 8, 2021</time>
+                <button class="note-card__delete" type="button">Delete</button>
+              </div>
+            </article>
+          </li>
+
+          <li class="archive__item">
+            <article class="note-card note-card--selected">
+              <h3 class="note-card__title">
+                <a class="note-card__link" href="#note-3">Light &amp; Bright in Brooklyn</a>
+              </h3>
+              <p class="note-card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at arcu dui.</p>
+              <div class="note-card__footer">
+                <time class="note-card__date" datetime="2021-02-08">Feb 8, 2021</time>
+                <button class="note-card__delete" type="button">Delete</button>
+              </div>
+            </article>
+          </li>
+
+          <li class="archive__item">
+            <article class="note-card">
+              <h3 class="note-card__title">
+                <a class="note-card__link" href="#note-4">Business Partners Work at Modern Office</a>
+              </h3>
+              <p class="note-card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at arcu dui.</p>
+              <div class="note-card__footer">
+                <time class="note-card__date" datetime="2021-02-08">Feb 8, 2021</time>
+                <button class="note-card__delete" type="button">Delete</button>
+              </div>
+            </article>
+          </li>
+        </ul>
+      </div>
+
+      <a class="archive__more button" href="#all-posts">All Posts</a>
+    </section>
+
+    <main class="content">
+      <article class="note">
+        <header class="note__header">
+          <h1 class="note__title">Business Partners Work at Modern Office</h1>
+          <p class="note__meta">
+            <time class="note__date" datetime="2021-02-08">Feb 8, 2021</time>
+            <span class="note__separator">/</span>
+            <span class="note__author">By Yousef</span>
+          </p>
+        </header>
+
+        <div class="note__body">
+          <p class="note__text">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at arcu dui. Lorem ipsum dolor sit amet, consectetur adipisce placerat mauris
+            nisl. Proin vitae urna eu sem pellentesque laoreet.
+          </p>
+          <p class="note__text">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at arcu dui. Lorem ipsum dolor sit amet, consectetur adipisce placerat mauris
+            nisl. Proin vitae urna eu sem pellentesque laoreet.
+          </p>
+        </div>
+      </article>
+
+      <section class="add-note">
+        <h1 class="add-note__title">Add Note</h1>
+
+        <form class="add-note__form" id="add-note-form">
+          <div class="form-field">
+            <label class="form-field__label" for="note-title"> Title<span aria-hidden="true">*</span> </label>
+            <input class="form-field__input" id="note-title" name="title" type="text" required />
+          </div>
+
+          <div class="form-field">
+            <label class="form-field__label" for="note-author"> Author<span aria-hidden="true">*</span> </label>
+            <input class="form-field__input" id="note-author" name="author" type="text" required />
+          </div>
+
+          <div class="form-field">
+            <label class="form-field__label" for="note-text"> Your Note<span aria-hidden="true">*</span> </label>
+            <textarea class="form-field__input form-field__input--textarea" id="note-text" name="text" required></textarea>
+          </div>
+
+          <div class="add-note__actions">
+            <button class="button" type="submit">Add Note</button>
+            <button class="button" type="submit" name="pinned" value="true">Add pinned note</button>
+          </div>
+        </form>
+      </section>
+      
+    </main>
+
+    <script src="scripts/index.js" type="module"></script>
+  </body>
+</html>
