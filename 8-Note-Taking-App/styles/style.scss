@@ -21,6 +21,9 @@
   --body-small-size: 1.3rem;
   --body-small-line-height: 2rem;
   --body-small-weight: 400;
+
+  /* Corners (estimated from the design, adjust if Figma says otherwise) */
+  --radius: 0.8rem;
 }
 
 /* CSS Reset */
@@ -34,7 +37,10 @@
 html {
   font-size: 62%;
 }
+
+// ==========================================================================
 // GLOBAL
+// ==========================================================================
 
 body {
   display: flex;
@@ -45,6 +51,13 @@ body {
   font-weight: var(--body-large-weight);
   color: var(--color-primary);
   background-color: var(--color-white);
+}
+
+// Headings look like normal text until a class styles them
+h1,
+h2,
+h3 {
+  font: inherit;
 }
 
 a {
@@ -64,33 +77,43 @@ ul {
   list-style: none;
 }
 
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  white-space: nowrap;
+// Visible outline for keyboard users
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
 }
 
-// LAYOUT
-
-.layout {
-  display: flex;
-  min-height: 100vh;
+.hidden {
+  display: none;
 }
 
+// ==========================================================================
+// TOPBAR (mobile only, hidden on desktop)
+// ==========================================================================
+
+.topbar {
+  display: none;
+}
+
+// ==========================================================================
 // SIDEBAR
+// ==========================================================================
 
 .sidebar {
+  position: sticky;
+  top: 0;
   width: 25.8rem;
+  height: 100vh;
   flex-shrink: 0;
+  overflow-y: auto;
   padding: 4.1rem 2.4rem;
   background-color: var(--color-gray-04);
   border-right: 1px solid var(--color-gray-03);
 
   &__logo {
     display: block;
+    color: var(--color-accent);
   }
 
   &__search {
@@ -100,9 +123,24 @@ ul {
   &__nav {
     margin-top: 3.6rem;
   }
+
+  // Only used on mobile
+  &__close {
+    display: none;
+  }
 }
 
+// ==========================================================================
+// OVERLAY (mobile only, dark layer behind the open menu)
+// ==========================================================================
+
+.overlay {
+  display: none;
+}
+
+// ==========================================================================
 // SEARCH
+// ==========================================================================
 
 .search {
   position: relative;
@@ -134,6 +172,7 @@ ul {
     line-height: var(--body-small-line-height);
     background-color: var(--color-white);
     border: 1px solid var(--color-gray-03);
+    border-radius: var(--radius);
     outline: none;
 
     &::placeholder {
@@ -146,7 +185,9 @@ ul {
   }
 }
 
+// ==========================================================================
 // MENU
+// ==========================================================================
 
 .menu {
   &__item {
@@ -178,7 +219,9 @@ ul {
   }
 }
 
+// ==========================================================================
 // ARCHIVE
+// ==========================================================================
 
 .archive {
   position: relative;
@@ -195,12 +238,14 @@ ul {
     padding: 0 1.6rem;
     font-size: var(--body-small-size);
     line-height: var(--body-small-line-height);
-    color: var(--color-gray-02);
+    color: var(--color-accent);
     text-transform: uppercase;
 
+    // "Notes" divider: lines above and below, edge to edge, normal case
     &--divided {
       margin: 0 -1.2rem;
       padding: 0.8rem 2.8rem;
+      text-transform: none;
       border-top: 1px solid var(--color-gray-03);
       border-bottom: 1px solid var(--color-gray-03);
     }
@@ -214,25 +259,21 @@ ul {
     margin-top: 1.6rem;
   }
 
-  &__add {
-    position: absolute;
-    top: 8rem;
-    right: -1.4rem;
-    z-index: 1;
-  }
-
   &__more {
     margin: 2.4rem 1.6rem 0;
   }
 }
 
-//NOTE CARD
+// ==========================================================================
+// NOTE CARD
+// ==========================================================================
 
 .note-card {
   padding: 1.6rem;
 
   &--selected {
     background-color: var(--color-gray-04);
+    border-radius: var(--radius);
   }
 
   &__description {
@@ -244,6 +285,7 @@ ul {
 
   &__footer {
     display: flex;
+    justify-content: space-between;
     gap: 1.2rem;
     margin-top: 0.8rem;
     font-size: var(--body-small-size);
@@ -263,9 +305,13 @@ ul {
   }
 }
 
-// NOTE DETAILS
+// ==========================================================================
+// CONTENT + NOTE DETAILS
+// ==========================================================================
+
 .content {
   flex: 1;
+  min-width: 0; // lets long words wrap instead of stretching the page
   padding: 11.4rem 4rem 4.8rem 9.9rem;
 }
 
@@ -296,9 +342,12 @@ ul {
   }
 }
 
+// ==========================================================================
 // ADD NOTE
+// ==========================================================================
 
 .add-note {
+  display: none; // hidden until the URL ends with #add-note (see VIEWS)
   max-width: 60rem;
 
   &__title {
@@ -313,12 +362,15 @@ ul {
 
   &__actions {
     display: flex;
+    flex-wrap: wrap;
     gap: 2.7rem;
     margin-top: 4.8rem;
   }
 }
 
+// ==========================================================================
 // FORM FIELD
+// ==========================================================================
 
 .form-field {
   & + & {
@@ -341,6 +393,7 @@ ul {
     color: var(--color-primary);
     background-color: var(--color-white);
     border: 1px solid var(--color-gray-03);
+    border-radius: var(--radius);
     outline: none;
 
     &:focus {
@@ -353,9 +406,15 @@ ul {
       resize: vertical;
     }
   }
+
+  &__error-message {
+    color: red;
+  }
 }
 
-//BUTTONS
+// ==========================================================================
+// BUTTONS
+// ==========================================================================
 
 .button {
   display: flex;
@@ -365,20 +424,216 @@ ul {
   padding: 0 2.4rem;
   font-size: var(--body-small-size);
   line-height: var(--body-small-line-height);
-  background-color: var(--color-white);
+  color: var(--color-gray-03);
+  background-color: var(--color-accent);
   border: 1px solid var(--color-gray-03);
+  border-radius: var(--radius);
+  transition: all 0.2s ease-out;
 
+  // Keep :hover ABOVE the modifiers, so a modifier can override it
   &:hover {
-    background-color: var(--color-gray-04);
+    scale: 1.1;
   }
 
-  &--icon {
-    width: 2.8rem;
-    height: 2.8rem;
+  &__icon {
+    width: 2.4rem;
+    height: 2.4rem;
+  }
+
+  // Floating "+" button
+  &--round {
+    position: fixed;
+    right: 4.8rem;
+    bottom: 4.8rem;
+    z-index: 5;
+    width: 5.6rem;
+    height: 5.6rem;
+    padding: 0;
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+    border-radius: 50%;
+    box-shadow: 0 0.4rem 1.2rem rgba(236, 113, 96, 0.4);
 
     &:hover {
       background-color: var(--color-accent);
       opacity: 0.85;
     }
+  }
+}
+
+// ==========================================================================
+// VIEWS
+// Switches between note details and the add note form with no JavaScript.
+// When your JS takes over, you can delete this section.
+// ==========================================================================
+
+.add-note:target {
+  display: block;
+}
+
+.content:has(.add-note:target) .note {
+  display: none;
+}
+
+.content:has(.add-note:target) .button--round {
+  display: none;
+}
+
+// ==========================================================================
+// RESPONSIVE
+// Desktop is the default above. These only change what is different.
+// ==========================================================================
+
+// ---- Small laptops and tablets landscape: 1024px and below ---------------
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 22rem;
+    padding: 4.1rem 1.6rem;
+  }
+
+  .archive {
+    width: 28rem;
+  }
+
+  .content {
+    padding: 8rem 3.2rem 4.8rem;
+  }
+}
+
+// ---- Tablets portrait and phones: 768px and below ------------------------
+// Menu becomes a slide-in drawer, the three columns stack.
+// Your JS adds / removes the class "sidebar--open" on .sidebar.
+@media (max-width: 768px) {
+  body {
+    flex-direction: column;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    display: grid;
+    grid-template-columns: 4rem 1fr 4rem;
+    align-items: center;
+    height: 5.8rem;
+    padding: 0 1.6rem;
+    background-color: var(--color-white);
+    border-bottom: 1px solid var(--color-gray-03);
+
+    &__menu {
+      display: flex;
+      align-items: center;
+      width: 4rem;
+      height: 4rem;
+    }
+
+    &__logo {
+      grid-column: 2;
+      text-align: center;
+      color: var(--color-accent);
+    }
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 20;
+    width: 20.3rem;
+    height: 100%;
+    padding: 6.4rem 1.6rem 2.4rem;
+    border-right: none;
+    visibility: hidden;
+    transform: translateX(-100%);
+    transition:
+      transform 0.25s ease,
+      visibility 0.25s;
+
+    &--open {
+      visibility: visible;
+      transform: translateX(0);
+    }
+
+    // The logo is already in the top bar
+    &__logo {
+      display: none;
+    }
+
+    &__close {
+      position: absolute;
+      top: 1.8rem;
+      left: 1.6rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 4rem;
+      height: 4rem;
+    }
+
+    &__search {
+      margin-top: 0;
+    }
+
+    &__nav {
+      margin-top: 3.2rem;
+    }
+  }
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    display: block;
+    background-color: rgba(48, 48, 48, 0.4);
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity 0.25s ease,
+      visibility 0.25s;
+  }
+
+  // Shows the overlay only while the sidebar is open
+  .sidebar--open + .overlay {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .archive {
+    width: 100%;
+    padding: 2.4rem 1.2rem;
+    border-right: none;
+    border-bottom: 1px solid var(--color-gray-03);
+  }
+
+  .content {
+    padding: 2.4rem 1.6rem 10rem; // extra bottom space so the "+" never covers text
+  }
+}
+
+// ---- Phones: 480px and below ---------------------------------------------
+@media (max-width: 480px) {
+  .add-note {
+    &__actions {
+      flex-direction: column;
+      gap: 1.6rem;
+    }
+  }
+
+  .button--round {
+    right: 1.6rem;
+    bottom: 1.6rem;
+    width: 4.8rem;
+    height: 4.8rem;
+  }
+}
+
+// ---- Respect people who turn animations off ------------------------------
+@media (prefers-reduced-motion: reduce) {
+  .sidebar,
+  .overlay {
+    transition: none;
   }
 }
