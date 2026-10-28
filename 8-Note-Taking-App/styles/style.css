@@ -212,6 +212,13 @@ button:focus-visible {
 .note-card {
   padding: 1.6rem;
 }
+.note-card__link {
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.note-card__link:hover {
+  scale: 1.1;
+}
 .note-card--selected {
   background-color: var(--color-gray-04);
   border-radius: var(--radius);

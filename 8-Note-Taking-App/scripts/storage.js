@@ -11,3 +11,11 @@ export const saveNote = (newNote) => {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(notes));
   return notes;
 };
+
+export const deleteNote = (noteId) => {
+  const notes = getSavedNotes();
+  const updatedNotes = notes.filter((note) => note.id !== noteId);
+
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(updatedNotes));
+  return updatedNotes;
+};

@@ -55,12 +55,15 @@ export const formSubmitHandler = (event) => {
   const isPinned = event.submitter?.name === "pinned";
 
   const newNode = {
+    id: crypto.randomUUID(),
     title: formInputElements[0].value.trim(),
     author: formInputElements[1].value.trim(),
     note: formInputElements[2].value.trim(),
     isPinned: isPinned,
+    createdAt: new Date().toDateString(),
   };
 
+  console.log(newNode);
   saveNote(newNode);
   resetForm(event);
 };

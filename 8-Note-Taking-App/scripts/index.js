@@ -1,7 +1,9 @@
 import { menuItemElements, notesMenuElement, addNoteMenuElement, archiveElement, formInputElements, formElement } from "./elements.js";
-
+import "./archive.js";
+import "./search.js";
 import { validateField, formSubmitHandler } from "./addnote-form.js";
 import { menuItemEventHandler } from "./sidebar-menu.js";
+import { viewAllNotes } from "./archive.js";
 
 menuItemElements.forEach((item) => {
   item.addEventListener("click", () => menuItemEventHandler(item));
@@ -19,4 +21,18 @@ formInputElements.forEach((formInput) => {
   formInput.addEventListener("blur", () => validateField(formInput));
 });
 
-formElement.addEventListener("submit", formSubmitHandler);
+formElement.addEventListener("submit", (event) => {
+  formSubmitHandler(event);
+  viewAllNotes();
+});
+
+const init = () => {
+  viewAllNotes();
+};
+
+document.addEventListener("DOMContentLoaded", init);
+
+
+
+// REMAINING THE RESPONSIVE PART
+// ALSO WHEN LOADING THE APP THE ADD NOTE SHOULDNT POP UP

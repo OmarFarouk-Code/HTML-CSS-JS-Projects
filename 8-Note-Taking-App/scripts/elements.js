@@ -4,3 +4,5 @@ export const menuItemElements = [notesMenuElement, addNoteMenuElement];
 export const archiveElement = document.querySelector(".archive");
 export const formInputElements = document.querySelectorAll(".form-field__input");
 export const formElement = document.querySelector(".add-note__form");
+export const allNotesButton = document.querySelector(".archive__more");
+export const archiveListElements = document.querySelectorAll(".archive__list");

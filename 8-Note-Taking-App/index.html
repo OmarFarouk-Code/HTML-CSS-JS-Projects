@@ -51,68 +51,16 @@
       <div class="archive__section">
         <h2 class="archive__heading">Pinned</h2>
 
-        <ul class="archive__list">
-          <li class="archive__item">
-            <article class="note-card">
-              <h3 class="note-card__title">
-                <a class="note-card__link" href="#note-1">Light &amp; Bright in Brooklyn</a>
-              </h3>
-              <p class="note-card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at arcu dui.</p>
-              <div class="note-card__footer">
-                <time class="note-card__date" datetime="2021-02-08">Feb 8, 2021</time>
-                <button class="note-card__delete" type="button">Delete</button>
-              </div>
-            </article>
-          </li>
-        </ul>
+        <ul class="archive__list"></ul>
       </div>
 
       <div class="archive__section">
         <h2 class="archive__heading archive__heading--divided">Notes</h2>
 
-        <ul class="archive__list">
-          <li class="archive__item">
-            <article class="note-card">
-              <h3 class="note-card__title">
-                <a class="note-card__link" href="#note-2">Business Partners Work at Modern Office</a>
-              </h3>
-              <p class="note-card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at arcu dui.</p>
-              <div class="note-card__footer">
-                <time class="note-card__date" datetime="2021-02-08">Feb 8, 2021</time>
-                <button class="note-card__delete" type="button">Delete</button>
-              </div>
-            </article>
-          </li>
-
-          <li class="archive__item">
-            <article class="note-card note-card--selected">
-              <h3 class="note-card__title">
-                <a class="note-card__link" href="#note-3">Light &amp; Bright in Brooklyn</a>
-              </h3>
-              <p class="note-card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at arcu dui.</p>
-              <div class="note-card__footer">
-                <time class="note-card__date" datetime="2021-02-08">Feb 8, 2021</time>
-                <button class="note-card__delete" type="button">Delete</button>
-              </div>
-            </article>
-          </li>
-
-          <li class="archive__item">
-            <article class="note-card">
-              <h3 class="note-card__title">
-                <a class="note-card__link" href="#note-4">Business Partners Work at Modern Office</a>
-              </h3>
-              <p class="note-card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at arcu dui.</p>
-              <div class="note-card__footer">
-                <time class="note-card__date" datetime="2021-02-08">Feb 8, 2021</time>
-                <button class="note-card__delete" type="button">Delete</button>
-              </div>
-            </article>
-          </li>
-        </ul>
+        <ul class="archive__list"></ul>
       </div>
 
-      <a class="archive__more button" href="#all-posts">All Posts</a>
+      <a class="archive__more button" href="#all-posts">All Notes</a>
     </section>
 
     <main class="content">
@@ -121,27 +69,7 @@
       </a>
 
       <!-- View 1: note details (default) -->
-      <article class="note" id="notes">
-        <header class="note__header">
-          <h1 class="note__title">Business Partners Work at Modern Office</h1>
-          <p class="note__meta">
-            <time class="note__date" datetime="2021-02-08">Feb 8, 2021</time>
-            <span class="note__separator" aria-hidden="true">/</span>
-            <span class="note__author">By Yousef</span>
-          </p>
-        </header>
-
-        <div class="note__body">
-          <p class="note__text">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at arcu dui. Lorem ipsum dolor sit amet, consectetur adipisce placerat mauris
-            nisl. Proin vitae urna eu sem pellentesque laoreet.
-          </p>
-          <p class="note__text">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at arcu dui. Lorem ipsum dolor sit amet, consectetur adipisce placerat mauris
-            nisl. Proin vitae urna eu sem pellentesque laoreet.
-          </p>
-        </div>
-      </article>
+      <div class="note-view-container"></div>
 
       <!-- View 2: add note form (shown when the URL ends with #add-note) -->
       <section class="add-note" id="add-note">
