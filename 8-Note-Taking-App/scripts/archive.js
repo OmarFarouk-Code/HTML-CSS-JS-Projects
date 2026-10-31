@@ -1,5 +1,5 @@
 import { getSavedNotes, deleteNote } from "./storage.js";
-import { archiveElement, allNotesButton, archiveListElements , noteViewContainer,addNoteSection } from "./elements.js";
+import { archiveElement, allNotesButton, archiveListElements, noteViewContainer, addNoteSection } from "./elements.js";
 
 export const viewAllNotes = () => {
   const notes = getSavedNotes();
@@ -54,9 +54,16 @@ const deleteNoteEventHandler = (event) => {
   if (userConfirmed) {
     const noteId = noteCard.dataset.id;
     deleteNote(noteId);
+
     noteCard.remove();
+
     const listItem = noteCard.closest(".archive__item") || noteCard;
     listItem.remove();
+
+    const viewedNote = noteViewContainer.querySelector(".note");
+    if (viewedNote && viewedNote.dataset.id === noteId) {
+      noteViewContainer.innerHTML = "";
+    }
   } else {
     return;
   }
@@ -81,7 +88,7 @@ const renderNote = (event) => {
 
   if (!clickedNote) return;
 
-  const noteHTML = `<article class="note" id="notes">
+  const noteHTML = `<article class="note" id="notes" data-id="${clickedNote.id}">
                         <header class="note__header">
                             <h1 class="note__title">${clickedNote.title}</h1>
                             <p class="note__meta">
