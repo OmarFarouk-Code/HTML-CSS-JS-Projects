@@ -1,6 +1,7 @@
 import { menuItemElements, notesMenuElement, addNoteMenuElement, archiveElement, formInputElements, formElement } from "./elements.js";
 import "./archive.js";
 import "./search.js";
+import "./hamburger-menu.js";
 import { validateField, formSubmitHandler } from "./addnote-form.js";
 import { menuItemEventHandler } from "./sidebar-menu.js";
 import { viewAllNotes } from "./archive.js";
@@ -31,8 +32,3 @@ const init = () => {
 };
 
 document.addEventListener("DOMContentLoaded", init);
-
-
-
-// REMAINING THE RESPONSIVE PART
-// ALSO WHEN LOADING THE APP THE ADD NOTE SHOULDNT POP UP
