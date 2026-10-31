@@ -2,6 +2,9 @@ import { formInputElements } from "./elements.js";
 import { saveNote } from "./storage.js";
 
 export const validateField = (formInput) => {
+  
+  if (!formInput.hasAttribute("required")) return true;
+
   const fieldLabelElement = formInput.previousElementSibling;
   const fieldErrorElement = formInput.nextElementSibling;
 

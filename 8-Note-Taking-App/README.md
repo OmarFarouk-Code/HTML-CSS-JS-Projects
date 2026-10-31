@@ -1,5 +1,7 @@
 # Notes Web Application
 
+**Live Demo:** https://note-taking-app-xi-rouge.vercel.app/
+
 A lightweight, responsive note-taking web application built with vanilla JavaScript using ES modules, SCSS, and local storage persistence.
 
 ---
@@ -40,6 +42,7 @@ A lightweight, responsive note-taking web application built with vanilla JavaScr
 ## Architecture & Code Design
 
 ### Data Schema
+
 Notes are stored as an array of JSON objects within `localStorage`:
 
 ```javascript
@@ -54,6 +57,7 @@ Notes are stored as an array of JSON objects within `localStorage`:
 ```
 
 ### Module Roles
+
 - **`storage.js`:** Pure helper functions for interacting with `localStorage` (`getSavedNotes`, `saveNote`, `deleteNote`). Keeps state persistence separated from DOM manipulation.
 - **`addnote-form.js`:** Manages form input state. Inspects `event.submitter` to determine whether the standard `"Add Note"` or `"Add pinned note"` button was triggered.
 - **`archive.js`:** Implements event delegation on the `.archive` container to manage card selection and deletion without rebinding listeners on each re-render.
@@ -66,21 +70,22 @@ Notes are stored as an array of JSON objects within `localStorage`:
 
 For automated testing or evaluators, the UI includes standardized test attributes:
 
-| Element | Attribute |
-| :--- | :--- |
-| Title Input Field | `data-testid="note-title"` |
-| Note Body Field | `data-testid="note-text"` |
-| Add Note Submit Button | `data-testid="add-note"` |
-| Pinned Section List | `data-testid="pinned-notes"` |
-| Standard Notes Section List | `data-testid="other-notes"` |
-| Note Card Element | `data-testid="note"` |
-| Card Delete Button | `data-testid="delete-note"` |
+| Element                     | Attribute                    |
+| :-------------------------- | :--------------------------- |
+| Title Input Field           | `data-testid="note-title"`   |
+| Note Body Field             | `data-testid="note-text"`    |
+| Add Note Submit Button      | `data-testid="add-note"`     |
+| Pinned Section List         | `data-testid="pinned-notes"` |
+| Standard Notes Section List | `data-testid="other-notes"`  |
+| Note Card Element           | `data-testid="note"`         |
+| Card Delete Button          | `data-testid="delete-note"`  |
 
 ---
 
 ## Getting Started
 
 1. **Clone the Repository:**
+
    ```bash
    git clone https://github.com/<your-username>/<repo-name>.git
    cd <repo-name>
@@ -90,6 +95,7 @@ For automated testing or evaluators, the UI includes standardized test attribute
    Because this project uses native **ES modules** (`type="module"`), files must be served over HTTP/HTTPS rather than opened via the local file system (`file://`).
 
    Using a local server of your choice:
+
    ```bash
    # Using Python 3
    python3 -m http.server 8000

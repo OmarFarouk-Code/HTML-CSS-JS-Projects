@@ -9,14 +9,14 @@ const renderSearchResults = (results) => {
   let notesHTML = "";
   results.forEach((note) => {
     const cardHTML = `<li class="archive__item">
-                        <article class="note-card" data-id="${note.id}">
+                        <article class="note-card" data-id="${note.id}" data-testid="note">
                         <h3 class="note-card__title">
                             <a class="note-card__link" href="#">${note.title}</a>
                         </h3>
                         <p class="note-card__description">${note.note}</p>
                         <div class="note-card__footer">
                             <time class="note-card__date">${note.createdAt}</time>
-                            <button class="note-card__delete" type="button">Delete</button>
+                            <button class="note-card__delete" type="button" data-testid="delete-note">Delete</button>
                         </div>
                         </article>
                     </li>`;
