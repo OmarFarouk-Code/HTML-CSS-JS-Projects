@@ -1,0 +1,149 @@
+:root {
+  --dark-blue: rgb(6, 5, 63);
+  --green-color: rgb(2, 107, 83);
+  --red-color: rgb(205, 65, 10);
+  --yellow-color: #ffc400;
+  --section-color: #eff7fa;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+.main-btn {
+  background-color: var(--red-color);
+  color: var(--yellow-color);
+  padding: 0.5rem 2rem;
+}
+
+.main-btn:hover,
+.main-btn:active,
+.main-btn:focus {
+  transition: all 0.2s ease-in-out;
+  background-color: var(--yellow-color);
+  color: var(--red-color);
+}
+
+.navbar {
+  background-color: var(--dark-blue);
+}
+
+.navbar .navbar-brand {
+  color: white;
+}
+
+.navbar-toggler {
+  color: white;
+}
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+.navbar .navbar-nav .nav-link {
+  color: white;
+}
+
+.navbar .navbar-nav .nav-link:hover,
+.navbar .navbar-nav .nav-link:active,
+.navbar .navbar-nav .nav-link:focus {
+  color: var(--green-color);
+  transition: all 0.2s ease-in-out;
+}
+
+.navbar .search svg {
+  color: var(--green-color);
+}
+
+.landing {
+  background-color: var(--dark-blue);
+  min-height: calc(100vh - 72px);
+}
+
+.main-title::after {
+  content: "";
+  width: 10rem;
+  height: 0.1rem;
+  background-color: var(--green-color);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.feat .icon-holder {
+  height: 12.5rem;
+}
+
+.feat .icon-holder svg {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.feat .number {
+  font-size: 12rem;
+  color: var(--section-color);
+}
+
+.feat .icon {
+  color: var(--green-color);
+  height: 5rem;
+  width: 5rem;
+  z-index: 2;
+}
+
+.feat .feat-title {
+  color: var(--yellow-color);
+}
+
+.our-work {
+  background-color: var(--section-color);
+}
+
+.our-work ul .active {
+  background-color: var(--red-color);
+  color: var(--yellow-color);
+}
+
+.our-work ul li {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.our-work ul li:not(.active):hover {
+  color: var(--red-color);
+}
+
+.our-work .box {
+  padding: 0.5rem;
+  overflow: hidden;
+}
+
+.team {
+  background-color: var(--section-color);
+}
+
+.team h2 {
+  color: var(--yellow-color);
+}
+
+.team .box {
+  min-height: 25rem;
+}
+
+.team .box h4 {
+  background-color: var(--green-color);
+}
+
+.tech-icon {
+  width: 6rem;
+  height: auto;
+  color: var(--green-color);
+}
+
+.project {
+  background-color: var(--dark-blue);
+}
+
+
+.footer{
+    background-color: var(--dark-blue);
+}
